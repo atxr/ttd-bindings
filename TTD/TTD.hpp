@@ -411,7 +411,6 @@ namespace TTD {
 	public:
 		explicit Cursor(TTD_Replay_ICursor* input) { cursor = input; }
 		Cursor(const Cursor&) = default;
-		virtual ~Cursor() { delete cursor; };
 		Cursor& operator=(const Cursor&) = default;
 
 		/**** Wrapping around the vftable ****/
