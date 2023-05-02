@@ -13,11 +13,16 @@ void callCallback_tree(unsigned __int64 callback_value, TTD::GuestAddress addr_f
 }
 
 int main() {
-	TTD::ReplayEngine ttdengine = TTD::ReplayEngine(L"C:\\Users\\Alexandre\\Documents\\ttd\\dll\\TTDReplay.dll", L"C:\\Users\\Alexandre\\Documents\\ttd\\dll\\TTDReplayCPU.dll");
+	// TODO CHANGE THE PATHS
+	const wchar_t* trace = L"C:\\Users\\atxr\\Documents\\ttd\\traces\\Notepad01.run";
+	const wchar_t* dll1 = L"C:\\Users\\atxr\\Documents\\ttd\\dll\\TTDReplay.dll";
+	const wchar_t* dll2 = L"C:\\Users\\atxr\\Documents\\ttd\\dll\\TTDReplayCPU.dll";
+
+	TTD::ReplayEngine ttdengine = TTD::ReplayEngine(dll1, dll2);
 	TTD::TTD_Replay_ICursorView_ReplayResult replayrez;
 	int result;
 
-	result = ttdengine.Initialize(L"C:\\Users\\Alexandre\\Documents\\ttd\\traces\\Notepad01.run");
+	result = ttdengine.Initialize(trace);
 	if (result == 0) {
 		std::wcerr << "Fail to open the trace";
 		exit(-1);
